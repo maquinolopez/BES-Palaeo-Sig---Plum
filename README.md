@@ -1,11 +1,11 @@
 # _Plum_ age-depth modelling.
 
-This is an introduction to age-depth modelling using rplum, R package. 
+This is an introduction to age-depth modelling using the R package rplum.
 
-Tutorial is divided into two sections, an introductory presentation (hosted in the presentation folder) and a RMarkdown file (hosted in the code's file) which shows the R instructions to get rplum installed and run examples. 
+The tutorial is broken up into two sections: an introduction presentation (hosted in the folder "presentation") and an RMarkdown file (hosted in the folder "code") that contains instructions on how to install and use rplum.
 
-_Plum_runs_ folder contains the necessary files for running this tutorial's examples. This folder should be copied to the users home folder (R's working directory). 
 
+The essential files for executing this lesson are located in the _Plum runs_ folder. The user's home folder, which serves as R's working directory, should have a copy of this folder.
 
 
 

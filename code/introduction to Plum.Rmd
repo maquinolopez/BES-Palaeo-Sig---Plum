@@ -1,0 +1,80 @@
+---
+title: "Plum_Introduction"
+output: html_document
+date: "2022-11-01"
+---
+
+## Installing Plum
+
+There are two ways to install rplum. The first way is to install it using the origial R repositories:
+  
+```{r eval=F}
+rm(list=ls())
+install.packages("IntCal")
+install.packages("rbacon")
+install.packages("rplum")
+```
+
+The second way to install it is by installing from Maarten's github by using the _devtools_ package 
+
+```{r eval=F}
+install.packages("devtools")  # if you dont have devtools install
+remotes::install_github("Maarten14C/IntCal")
+devtools::install_github("Maarten14C/rbacon")
+remotes::install_github("maarten14C/rplum")
+```
+
+## Loading and running Plum 
+  
+Now that we have the package installed lets load it and run the default core. 
+```{r eval=F}
+library(rplum)
+Plum()
+```
+
+
+![ ](Plum_runs/HP1C/HP1C_51.png)
+This plots shows the results from the model and it is important to don't cut the top panels as they show all the necessary information for the analysis of the chronology and replication of the results. 
+
+## Running your cores
+
+In order to run your own cores you have to put your data in a folder with the same name as the file, inside the __Plum_runs__ folder. In __R__ you can use the command _Plum_ with the name of the file as follows.
+
+```{r eval=F}
+Plum("Sim01")
+```
+![ ](Plum_runs/Sim01/Norm_cron.png)
+
+## Changing the prior distributions
+
+Default prior distributions in both _Bacon_ and _Plum_ are initial guess of the accumulation rates. These are in some cases a good initial guess but if you have information about the accumulation rate this should be change as follow:
+
+```{r eval =F}
+Plum('Sim01',acc.mean = 20 ,acc.shape = 2)
+```
+![ ](Plum_runs/Sim01/Acc_cron.png)
+## Changing the memory
+
+The memory parameter in these models defines the stiffness of the model, the default value in this case would allow the model to be more flexible if necessary. 
+
+
+```{r eval =F}
+Plum('Sim01',mem.mean = .1,mem.strength =  5)
+```
+![ ](Plum_runs/Sim01/mem_cron.png)
+
+
+### Thank you 
+
+If you have more questions or problems feel free to contact me at aquino@cimat.mx
+
+
+
+
+  
+  
+  
+  
+  
+
+
