@@ -64,6 +64,65 @@ Plum('Sim01',mem.mean = .1,mem.strength =  5)
 ![ ](Plum_runs/Sim01/mem_cron.png)
 
 
+## Plotting accumulation rates at specific depth
+
+```{r eval = F}
+Plum("HP1C")
+accrate_d10 <- accrate.depth(d = 10)
+summary(accrate_d10)
+mean(accrate_d10);var(accrate_d10)
+plot(density(accrate_d10) ,main='Accumulation Rate at depth 10 cm',xlab='yr/cm',ylab='')
+
+accrate_d25 <- accrate.depth(d = 25,cmyr = TRUE)
+head(accrate_d25)
+mean(accrate_d25);var(accrate_d25)
+summary(accrate_d25)
+plot(density(accrate_d25) ,main='Accumulation Rate at depth 25 cm',xlab='cm/yr',ylab='')
+```
+
+![ ](Plum_runs/HP1C/density1.png)
+
+
+## Plotting accumulation rates at specific age
+
+```{r eval = F}
+accrate_a300 <- accrate.age(age=3)
+head(accrate_a300)
+mean(accrate_a300);var(accrate_a300)
+summary(accrate_a300)
+plot(density(accrate_a300) ,main='Accumulation Rate at age 3 BP',xlab='yr/cm',ylab='')
+hist(accrate_a300,breaks = 100)
+
+acc_rate_10 <- accrate.age(age = -10,cmyr = TRUE)
+head(acc_rate_10)
+mean(acc_rate_10);var(acc_rate_10)
+plot(density(acc_rate_10) ,main='Accumulation Rate at ageh -10 BP',xlab='cm/yr',ylab='')
+```
+![ ](Plum_runs/HP1C/density-age.png)
+
+## Plotting accumulation rates for whole model by depth
+
+```{r eval = F}
+accrate.depth.ghost(cmyr = T, acc.lim = c(0,1.5) )
+accrate.depth.ghost(acc.lim = c(0,15), d.lim = c(0,10))
+```
+![ ](Plum_runs/HP1C/acc-plot.png)
+
+
+## Plotting accumulation rates for whole model by age
+
+```{r eval = F}
+accrate.age.ghost(acc.lim = c(0,40))
+accrate.age.ghost(cmyr = TRUE,age.lim = c(-20,50),acc.lim = c(0,.28))
+
+```
+![ ](Plum_runs/HP1C/acc-age.png)
+
+
+
+
+
+
 ### Thank you 
 
 If you have more questions or problems feel free to contact me at aquino@cimat.mx
